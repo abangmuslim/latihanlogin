@@ -23,7 +23,7 @@ PEMINJAMANALATRPL/
 │  │  ├─ js/
 │  │  └─ img/
 │  │
-│  └─ pluggins/                  ← plugin tambahan AdminLTE (chart, datatables, wysiwyg, dsb)
+│  └─ plugins/                  ← plugin tambahan AdminLTE (chart, datatables, wysiwyg, dsb)
 │     ├─ datatables/
 │     ├─ chartjs/
 │     └─ summernote/
@@ -65,10 +65,6 @@ PEMINJAMANALATRPL/
 │  │  ├─ dashboardoperator.php    ← dashboard utama untuk operator (sama seperti admin, kecuali dashboard, user, produk)
 │  │  └─ dashboardadmin.php       ← dashboard utama 
 │  │
-│  ├─ peminjam/                 ← alat dashboard untuk user login (extend dari pages/user atau pages/peminjam)
-│  │  ├─ dashboardpeminjam.php              
-│  │  ├─ tambahpeminjaman.php              
-│  │  └─ prosespeminjaman.php        
 │  │
 │  └─ landing/                  ← tampilan publik (extend dari pages/landing)
 │     ├─ home.php               ← halaman utama portal (daftar artikel)
