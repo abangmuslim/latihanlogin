@@ -1,0 +1,27 @@
+-- Buat database
+CREATE DATABASE IF NOT EXISTS db_latihan;
+USE db_latihan;
+
+-- Buat tabel tuser
+CREATE TABLE tuser (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(20) DEFAULT NULL,
+    nama_lengkap VARCHAR(100) DEFAULT NULL,
+    password VARCHAR(255) DEFAULT NULL,
+    level ENUM('pegawai', 'operator', 'admin') DEFAULT NULL
+);
+
+-- Insert 10 user
+INSERT INTO tuser (username, nama_lengkap, password, level) VALUES
+('fahripegawai',  'Fahri Pegawai',         MD5('pegawai123'),     'pegawai'),
+('firmanpegawai', 'Firman Saputra',        MD5('pegawai123'),     'pegawai'),
+('aguspegawai',   'Agus Permana',          MD5('pegawai123'),     'pegawai'),
+('indahpegawai',  'Indah Lestari',         MD5('pegawai123'),     'pegawai'),
+('annisapegawai', 'Annisa Kartika',        MD5('pegawai123'),     'pegawai'),
+
+('operator1',     'Operator Satu',         MD5('operator123'),    'operator'),
+('operator2',     'Operator Dua',          MD5('operator123'),    'operator'),
+('operator3',     'Operator Tiga',         MD5('operator123'),    'operator'),
+
+('admin1',        'Administrator 1',       MD5('admin123'),       'admin'),
+('superadmin',    'Super Administrator',   MD5('superadmin123'),  'admin');

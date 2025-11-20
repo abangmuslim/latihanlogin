@@ -1,0 +1,108 @@
+PEMINJAMANALATRPL/
+│
+├─ pages/
+│  │
+│  ├─ user/                     ← layout untuk role admin (back office)
+│  │  ├─ header.php             ← head, link CSS, judul halaman
+│  │  ├─ navbar.php             ← navigasi atas admin
+│  │  ├─ sidebaradmin.php       ← sidebar menu admin (kelola dashboard asal, jabatan, user, peminjam, merk, posisi,kategori, alat, komentar, peminjaman, pengembalian, laporan)
+│  │  ├─ sidebaroperator.php    ← sidebarpetugas menu operator (sama seperti admin, kecuali pelanggan, penjualan, laporan,)
+│  │  ├─ sidebaropegawai.php    ← sidebarpetugas menu pegawai (sama seperti admin, kecuali dashboard, user, produk)
+│  │  └─ footer.php             ← script JS dan footer dashboard
+│  │
+│  └─ landing/                  ← layout tampilan publik (front office / portal berita)
+│     ├─ header.php             ← head HTML umum, meta tag SEO, CSS portal
+│     ├─ navbar.php             ← menu utama (Home, Kategori, Tentang, Login)
+│     ├─ hero.php             
+│     ├─ footer.php             ← footer publik, hak cipta, JS
+│     └─ sidebar-right.php      ← opsional: widget, tag cloud, iklan, dsb.
+││
+├─ assets/
+│  ├─ dist/                     ← komponen utama AdminLTE (CSS, JS, icons, dsb)
+│  │  ├─ css/
+│  │  ├─ js/
+│  │  └─ img/
+│  │
+│  └─ pluggins/                  ← plugin tambahan AdminLTE (chart, datatables, wysiwyg, dsb)
+│     ├─ datatables/
+│     ├─ chartjs/
+│     └─ summernote/
+│
+├─ views/
+│  │
+│  ├─ otentikasi/               ← halaman otentikasi (login, register, logout) untuk  dari tabel 
+│  │  ├─ login.php              ← form login  (admin/petugas)
+│  │  ├─ register.php           ← form pendaftaran (opsional)
+│  │  ├─ logout.php             ← proses logout (hapus session)
+│  │  └─ proseslogin.php        ← proses backend login (cek ke DB, set session)
+│  │
+│  │
+│  ├─ user/                     ← alat dashboard untuk user login (extend dari pages/user atau pages/peminjam)
+│  │  │
+│  │  ├─ user/
+│  │  │  ├─ prosesuser.php      ← logic CRUD user
+│  │  │  ├─ daftaruser.php      ← list user untuk admin
+│  │  │  ├─ tambahuser.php      ← form tambah user
+│  │  │  └─ edituser.php        ← form edit user
+│  │  │
+│  │  ├─ produk/
+│  │  │  ├─ prosesproduk.php    ← logic CRUD kategori
+│  │  │  ├─ daftarproduk.php
+│  │  │  ├─ tambahproduk.php
+│  │  │  └─ editproduk.php
+│  │  │
+│  │  ├─ penjualan/
+│  │  │  ├─ prosespenjualan.php    ← logic CRUD penjualan
+│  │  │  ├─ daftarpenjualan.php
+│  │  │  ├─ tambahpenjualan.php
+│  │  │  └─ editpenjualan.php
+│  │  │
+│  │  ├─ laporan/
+│  │  │  ├─ daftarlaporan.php
+│  │  │  └─ cetaklaporan.php
+│  │  │
+│  │  ├─ dashboardpegawai.php     ← dashboard utama untuk pegawai(sama seperti admin, kecuali pelanggan, penjualan, laporan)
+│  │  ├─ dashboardoperator.php    ← dashboard utama untuk operator (sama seperti admin, kecuali dashboard, user, produk)
+│  │  └─ dashboardadmin.php       ← dashboard utama 
+│  │
+│  ├─ peminjam/                 ← alat dashboard untuk user login (extend dari pages/user atau pages/peminjam)
+│  │  ├─ dashboardpeminjam.php              
+│  │  ├─ tambahpeminjaman.php              
+│  │  └─ prosespeminjaman.php        
+│  │
+│  └─ landing/                  ← tampilan publik (extend dari pages/landing)
+│     ├─ home.php               ← halaman utama portal (daftar artikel)
+│     ├─ detilalat.php        ← halaman detail artikel
+│     ├─ kategori.php           ← daftar artikel per kategori
+│     ├─ tentang.php            ← halaman tentang CMS
+│     ├─ kontak.php             ← halaman kontak (opsional)
+│     ├─ 404.php                ← halaman notfound
+│     └─ proseskomentar.php     ← logic komentar publik (insert & tampil)
+│
+│
+├─ includes/                    ← fungsi & keamanan (dibaca semua halaman)
+│  ├─ koneksi.php               ← koneksi database (utama)
+│  ├─ konfig.php                ← variabel global (base_url, site_name, dll)
+│  ├─ path.php                  
+│  ├─ ceksession.php            ← pengecekan login, redirect jika belum loginuser
+│  ├─ ceksessionpeminjam.php    ← pengecekan login, redirect jika belum loginpeminjam
+│  ├─ fungsiupload.php          ← helper upload gambar (validasi tipe & ukuran)
+│  ├─ fungsivalidasi.php        ← sanitasi input & validasi form
+│  └─ htaccess/                 ← file keamanan .htaccess untuk referensi
+│
+│
+├─ perlengkapan/
+│  ├─ struktur.txt              ← struktur diagram pohon
+│  └─ latihanlogin.sql          ← file dump struktur database (opsional)
+│
+├─ uploads/                     ← penyimpanan file publik (gambar user & alat)
+│  ├─ user/                     ← foto profil user
+│  ├─ pelanggan/                 ← foto profil peminjam
+│  ├─ produk/                     ← gambar alat
+│  ├─ penjualan/               ← gambar peminjaman
+│  ├─ komentar/                 ← gambar dari komentar (opsional)
+│  └─ .htaccess                 ← keamanan: blok eksekusi file PHP
+│
+├─ dashboard.php                ← pusat halaman backend (routing admin/peminjam)
+├─ index.php                    ← pusat halaman publik (routing landing)
+├─ .htaccess                    ← redirect URL, blok akses direktori penting
